@@ -29,14 +29,14 @@ import org.checkerframework.checker.nullness.qual.NonNull;
 /**
  * An entity NBT component.
  */
-public interface EntityNbtComponent extends NbtComponent<EntityNbtComponent, EntityNbtComponent.Builder>, ScopedComponent<EntityNbtComponent> {
+public interface EntityNBTComponent extends NBTComponent<EntityNBTComponent, EntityNBTComponent.Builder>, ScopedComponent<EntityNBTComponent> {
   /**
    * Creates an entity NBT component builder.
    *
    * @return a builder
    */
   static @NonNull Builder builder() {
-    return new EntityNbtComponentImpl.BuilderImpl();
+    return new EntityNBTComponentImpl.BuilderImpl();
   }
 
   /**
@@ -46,7 +46,7 @@ public interface EntityNbtComponent extends NbtComponent<EntityNbtComponent, Ent
    * @param selector the selector
    * @return the entity NBT component
    */
-  static @NonNull EntityNbtComponent of(final @NonNull String nbtPath, final @NonNull String selector) {
+  static @NonNull EntityNBTComponent of(final @NonNull String nbtPath, final @NonNull String selector) {
     return builder().nbtPath(nbtPath).selector(selector).build();
   }
 
@@ -56,7 +56,7 @@ public interface EntityNbtComponent extends NbtComponent<EntityNbtComponent, Ent
    * @param consumer the builder configurator
    * @return the entity NBT component
    */
-  static @NonNull EntityNbtComponent make(final @NonNull Consumer<? super Builder> consumer) {
+  static @NonNull EntityNBTComponent make(final @NonNull Consumer<? super Builder> consumer) {
     final Builder builder = builder();
     return AbstractComponentBuilder.configureAndBuild(builder, consumer);
   }
@@ -74,12 +74,12 @@ public interface EntityNbtComponent extends NbtComponent<EntityNbtComponent, Ent
    * @param selector the entity selector
    * @return a component
    */
-  @NonNull EntityNbtComponent selector(final @NonNull String selector);
+  @NonNull EntityNBTComponent selector(final @NonNull String selector);
 
   /**
    * An entity NBT component builder.
    */
-  interface Builder extends NbtComponentBuilder<EntityNbtComponent, Builder> {
+  interface Builder extends NBTComponentBuilder<EntityNBTComponent, Builder> {
     /**
      * Sets the entity selector.
      *

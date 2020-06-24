@@ -27,7 +27,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import java.util.function.Consumer;
 import net.kyori.adventure.key.Key;
-import net.kyori.adventure.text.BlockNbtComponent;
+import net.kyori.adventure.text.BlockNBTComponent;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.event.ClickEvent;
 import net.kyori.adventure.text.event.HoverEvent;
@@ -53,7 +53,7 @@ public final class GsonComponentSerializer implements ComponentSerializer<Compon
     builder.registerTypeAdapter(TextColorWrapper.class, new TextColorWrapper.Serializer());
     builder.registerTypeHierarchyAdapter(TextColor.class, new TextColorSerializer());
     builder.registerTypeAdapter(TextDecoration.class, new NameMapSerializer<>("text decoration", TextDecoration.NAMES));
-    builder.registerTypeHierarchyAdapter(BlockNbtComponent.Pos.class, new BlockNbtComponentPosSerializer());
+    builder.registerTypeHierarchyAdapter(BlockNBTComponent.Pos.class, new BlockNbtComponentPosSerializer());
   };
 
   static final Gson GSON = createGson();

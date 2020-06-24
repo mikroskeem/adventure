@@ -30,14 +30,14 @@ import org.checkerframework.checker.nullness.qual.NonNull;
 /**
  * An storage NBT component.
  */
-public interface StorageNbtComponent extends NbtComponent<StorageNbtComponent, StorageNbtComponent.Builder>, ScopedComponent<StorageNbtComponent> {
+public interface StorageNBTComponent extends NBTComponent<StorageNBTComponent, StorageNBTComponent.Builder>, ScopedComponent<StorageNBTComponent> {
   /**
    * Creates an storage NBT component builder.
    *
    * @return a builder
    */
   static @NonNull Builder builder() {
-    return new StorageNbtComponentImpl.BuilderImpl();
+    return new StorageNBTComponentImpl.BuilderImpl();
   }
 
   /**
@@ -47,7 +47,7 @@ public interface StorageNbtComponent extends NbtComponent<StorageNbtComponent, S
    * @param storage the identifier of the storage
    * @return the storage NBT component
    */
-  static @NonNull StorageNbtComponent of(final @NonNull String nbtPath, final @NonNull Key storage) {
+  static @NonNull StorageNBTComponent of(final @NonNull String nbtPath, final @NonNull Key storage) {
     return builder().nbtPath(nbtPath).storage(storage).build();
   }
 
@@ -57,7 +57,7 @@ public interface StorageNbtComponent extends NbtComponent<StorageNbtComponent, S
    * @param consumer the builder configurator
    * @return the storage NBT component
    */
-  static @NonNull StorageNbtComponent make(final @NonNull Consumer<? super Builder> consumer) {
+  static @NonNull StorageNBTComponent make(final @NonNull Consumer<? super Builder> consumer) {
     final Builder builder = builder();
     return AbstractComponentBuilder.configureAndBuild(builder, consumer);
   }
@@ -75,12 +75,12 @@ public interface StorageNbtComponent extends NbtComponent<StorageNbtComponent, S
    * @param storage the identifier of the NBT storage
    * @return a component
    */
-  @NonNull StorageNbtComponent storage(final @NonNull Key storage);
+  @NonNull StorageNBTComponent storage(final @NonNull Key storage);
 
   /**
    * A command storage NBT component builder.
    */
-  interface Builder extends NbtComponentBuilder<StorageNbtComponent, Builder> {
+  interface Builder extends NBTComponentBuilder<StorageNBTComponent, Builder> {
     /**
      * Sets the NBT storage.
      *
